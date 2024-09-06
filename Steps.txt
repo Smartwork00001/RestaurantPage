@@ -1,0 +1,122 @@
+This is the text file for writing the steps in Restaurant project
+
+JavaScript
+	ES6 modules
+	How to create HTML element?
+npm
+	npm is a package manager for javascript modules.
+	It also has functions to automate the web development workflow.
+WebPack
+	Webpack is a bundler. 
+	Parameters: entry point, output, loaders, and plugins.
+	Output: condensed js, html, file 
+	Webpack asset management https://webpack.js.org/guides/asset-management/#loading-images
+		For loading different file types, webpack has corresponding methods
+		For images that will be loaded by javascript
+Steps
+	run npm init -y
+		This starts the project dependency recording.
+	Install webpack
+		By installing webpack using npm, essentially we are making sure that any developer running our code will install webpack as a dependency and thus ensure smooth running. There are other ways to do this.
+	Configure webpack
+		create src file
+		create webpack.config.js
+			change the template.html to index.html in config file in both places
+	npm install --save-dev html-webpack-plugin
+	npm install html-loader --save-dev
+	npm install --save-dev style-loader css-loader
+	npm install --save-dev webpack-dev-server
+		to save having to do npx webpack
+	inside src
+		create index.js
+		create index.html
+		put console.log in index.js and run
+	npx webpack serve
+	Create the app
+	npx webpack
+	file into github pages
+
+HTML files
+	index.html
+		body
+			header
+				div content
+				nav
+
+Questions
+	does it matter where I run npm install --save-dev webpack webpack-cli, whether in the root directory or a nested directory?
+		Yes, it does matter where you run npm install --save-dev webpack webpack-cli.
+
+		Running this command in the root directory of your project will install Webpack and Webpack CLI as development dependencies for the entire project. This means that they will be available to all modules and files within the project.
+
+		Running this command in a nested directory will install Webpack and Webpack CLI as development dependencies only for that specific directory and its subdirectories. This can be useful if you want to isolate certain modules or components from the rest of your project.
+
+		Here's a breakdown of the implications:
+
+		Root directory:
+
+		Webpack and Webpack CLI will be available to all modules and files in your project.
+		This is usually the preferred approach for most projects.
+		Nested directory:
+
+		Webpack and Webpack CLI will only be available within the nested directory and its subdirectories.
+		This can be useful for isolating certain modules or components, but it can also make it more difficult to manage dependencies across your project.
+
+
+	for fs.readdir, does the specification says that the callback function must have parameters for err and files?
+		Yes, the specification for fs.readdir requires that the callback function have two parameters: err and files.
+
+		The err parameter will be null if there are no errors, or it will contain an Error object if there was an error reading the directory.
+
+		The files parameter will be an array of strings, each representing the name of a file or directory in the specified directory.
+
+		Here's the signature of the fs.readdir function:
+
+		JavaScript
+		fs.readdir(path, options, callback)
+		Use code with caution.
+
+		path: The path to the directory to read.
+		options: Optional options object for configuring the read operation.
+		callback: A function that will be called with the err and files parameters.
+		It's important to follow this specification to ensure that your code handles errors and retrieves the correct file information from the directory.
+	what is a callback?
+		A callback function is a function that is passed as an argument to another function and is executed later, typically after an asynchronous operation has completed.   
+
+		In JavaScript, many operations, such as file I/O, network requests, and timers, are asynchronous. This means they don't block the execution of the main thread while they're running. Instead, they take a callback function as an argument. When the operation completes, the callback function is called with the result of the operation.
+
+		Here's a basic example:
+
+		JavaScript
+		function greet(name, callback) {
+		  console.log("Hello, " + name + "!");
+		  callback();
+		}
+
+		greet("Alice", function() {
+		  console.log("Callback executed.");
+		});
+		Use code with caution.
+
+		In this example, the greet function takes two arguments: a name and a callback function. When greet is called, it logs a greeting message and then calls the callback function. The callback function is executed after the greet function has finished its work.
+
+		Common use cases for callbacks:
+
+		Asynchronous operations: File I/O, network requests, timers, etc.
+		Event handling: Event listeners are essentially callback functions that are executed when an event occurs.
+		Promises: Promises are a more modern way to handle asynchronous operations, but they often use callbacks internally.
+		Key points to remember:
+
+		Callback functions are passed as arguments to other functions.
+		They are executed after the main function has finished its work.
+		They are often used to handle the results of asynchronous operations.
+		By understanding callbacks, you can effectively work with asynchronous code in JavaScript and build more robust and responsive applications.
+
+
+		Sources and related content
+
+
+Errors
+	variableName is not defined
+		forgot to add let variableName = ...
+	spelling error
